@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitch Chat Counter</title>
+  <link rel="stylesheet" href="https://ez-css.now.sh">
+</head>
+<body>
+  <div>
+    <center>
+      <marquee><p>Type 1 in the chat!</p></marquee>
+      <em>(broadcaster only)</em>
+      <br />
+      <code>!start-count | !end-count | !clear-count</code>
+      <br />
+      <br />
+    </center>
+    <small id="status"></small>
+    <h1 id="count">Waiting for count...</h1>
+    <h3 id="users"></h3>
+  </div>
+  <script src="tmi.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
