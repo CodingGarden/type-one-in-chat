@@ -4,7 +4,7 @@ module.exports = (req, res) => {
         'Client-ID': '91rougkc35nq63ygvxrix9kxzno4y9',
         'Accept': 'application/vnd.twitchtv.v5+json'
     }
-    fetch(`https://api.twitch.tv/kraken/users?=${channel}`, {
+    fetch(`https://api.twitch.tv/kraken/users?login=${channel}`, {
         method: 'GET',
         headers: headers
     }).then(res => {
