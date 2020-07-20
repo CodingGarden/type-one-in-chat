@@ -1,4 +1,5 @@
 const countElement = document.querySelector('#count');
+const percentElement = document.querySelector('#percent');
 const usersElement = document.querySelector('#users');
 const statusElement = document.querySelector('#status');
 
@@ -11,6 +12,7 @@ const client = new tmi.Client({
   },
   channels: [channel],
 });
+let viewers = 0;
 
 client.connect().then(() => {
   statusElement.textContent = `Listening for messages in ${channel}...`;
@@ -35,10 +37,12 @@ client.on('message', (wat, tags, message, self) => {
       usersElement.textContent = '';
       users = {};
     }
-  } else if (listeningForCount && message === '1') {
+  } //else if (listeningForCount && message === '1') {
+  if (listeningForCount && message === '1') {
     users[tags.username] = true;
     // display current count page.
     countElement.textContent = Object.keys(users).length;
+    percentElement.textContent = ((Object.keys(users).length / viewers) * 100) + '%';
     usersElement.textContent = Object.keys(users).join(', ');
   }
 });
