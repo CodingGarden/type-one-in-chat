@@ -25,8 +25,7 @@ let users = {};
 client.on('message', (wat, tags, message, self) => {
   if (self) return;
   const { username } = tags;
-  //if (username.toLowerCase() === channel.toLowerCase()) {
-  if (true) {
+  if (username.toLowerCase() === channel.toLowerCase()) {
     if (message === '!start-count') {
       listeningForCount = true;
     } else if (message === '!end-count') {
@@ -39,8 +38,7 @@ client.on('message', (wat, tags, message, self) => {
       usersElement.textContent = '';
       users = {};
     }
-  } //else if (listeningForCount && message === '1') {
-  if (listeningForCount && message === '1') {
+  } else if (listeningForCount && message === '1') {
     users[tags.username] = true;
     // display current count page.
     countElement.textContent = Object.keys(users).length;
@@ -49,12 +47,10 @@ client.on('message', (wat, tags, message, self) => {
     usersElement.textContent = Object.keys(users).join(', ');
   }
 });
-
 const headers = {
   'Client-ID': '91rougkc35nq63ygvxrix9kxzno4y9',
   'Accept': 'application/vnd.twitchtv.v5+json'
 }
-
 function getUserID() {
   return fetch(`https://api.twitch.tv/kraken/users?login=${channel}`, {
     method: 'GET',
@@ -63,7 +59,6 @@ function getUserID() {
     .then(res => res.json())
     .then(data => data.users[0]['_id']);
 }
-
 getUserID().then(id => {
   return fetch(`https://api.twitch.tv/kraken/streams/${id}`, {
     method: 'GET',
