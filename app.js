@@ -48,7 +48,7 @@ client.on('message', (wat, tags, message, self) => {
   }
 });
 const headers = {
-  'Client-ID': '91rougkc35nq63ygvxrix9kxzno4y9',
+  'Client-ID': config.clientID,
   'Accept': 'application/vnd.twitchtv.v5+json'
 }
 function getUserID() {
