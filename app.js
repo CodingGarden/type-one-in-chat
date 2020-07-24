@@ -36,9 +36,32 @@ client.on('message', (wat, tags, message, self) => {
       users = {};
     }
   } else if (listeningForCount && message === '1') {
-    users[tags.username] = true;
-    // display current count page.
-    countElement.textContent = Object.keys(users).length;
-    usersElement.textContent = Object.keys(users).join(', ');
+   //this if statement prevents names from being displayed twice
+     if(!users[tags.username]){
+        // display current count page.
+        users[tags.username] = true;
+        countElement.textContent = Object.keys(users).length;
+        let comma = (Object.keys(users).length == 1) ?"":", ";
+        let userSpan = document.createElement("span");
+        userSpan.innerHTML = comma + Object.keys(users)[Object.keys(users).length-1];
+        userSpan.classList.add("fade-in");
+        typeEffect(userSpan);
+        usersElement.appendChild(userSpan);   
+     }
   }
 });
+
+
+function typeEffect(element) {
+	let text = element.innerHTML;
+	element.innerHTML = "";
+	let i = 0;
+	let timer = setInterval(function() {
+    if (i < text.length) {
+      element.append(text.charAt(i));
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, 50);
+}

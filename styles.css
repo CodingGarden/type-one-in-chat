@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rowdies&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 1.5em;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #dbdbdb;
+}
+
+p, div, em{
+  display: 'block';
+  width: 100%;
+  font-family:  'Poppins', sans-serif;
+  font-size: 0.9em;
+  margin: 0.1em;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+marquee, code, em{
+  padding: 10px;
+  border-radius: 30px ;
+}
+
+marquee{
+  background-color: lightgray;
+}
+
+code{
+  background-color: dimgray;
+}
+
+em{
+    background-color: #eeffdb;
+}
+
+
