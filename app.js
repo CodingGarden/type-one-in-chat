@@ -35,7 +35,7 @@ client.on('message', (wat, tags, message, self) => {
       usersElement.textContent = '';
       users = {};
     }
-  } else if (listeningForCount && message === '1') {
+  } else if (listeningForCount && (message === '1' || message === 'codingg1')) {
     users[tags.username] = true;
     // display current count page.
     countElement.textContent = Object.keys(users).length;
