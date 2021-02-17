@@ -22,7 +22,7 @@ let users = {};
 client.on('message', (wat, tags, message, self) => {
   if (self) return;
   const { username } = tags;
-  //if (username.toLowerCase() === channel.toLowerCase()) {
+  if (username.toLowerCase() === channel.toLowerCase()) {
     if (message === '!start-count') {
       listeningForCount = true;
     } else if (message === '!end-count') {
@@ -35,8 +35,8 @@ client.on('message', (wat, tags, message, self) => {
       usersElement.textContent = '';
       users = {};
     }
-  /*} else */ if (listeningForCount && message === '1') {
-      console.log(message);
+  }
+  if (listeningForCount && message === '1') {
    //this if statement prevents names from being displayed twice
      if(!users[tags.username]){
         // display current count page.
